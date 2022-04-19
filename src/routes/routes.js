@@ -21,7 +21,8 @@ const RoutesPath = {
   bestMatches:"/bestMatches",
   NewTalants:"/NewTalants",
   Saved:"/Saved",
-  signUpPage:"/signUpPage"
+  signUpPage:"/signUpPage",
+  downloadAndShare:"/downloadAndShare"
 
 };
 
