@@ -35,9 +35,8 @@ const SecondTemplateResume = props => {
           <div className="left-side">
             <div className="top-user-avatar default-avatar">
 
-                 {
-                   initialValue.avatarInitialValue ?  <img src={initialValue.avatarInitialValue} alt=""/> :
-                       <img src="./images/avatar2.png" alt=""/>}
+                
+                       <img src="./images/avatar2.png" alt=""/>
 
 
             </div>
@@ -69,11 +68,11 @@ const SecondTemplateResume = props => {
                 </div>
                 <div className="network-field">
                    <span
-                       className="">{addressInitialValue.isWritten ? addressInitialValue.country : "Uzbekistan"}</span>
+                       className="">{"Uzbekistan"}</span>
                     <span
-                        className="">{addressInitialValue.isWritten ? addressInitialValue.region : "Tashkent"}</span>
+                        className="">{"Tashkent"}</span>
                     <span
-                        className="">{addressInitialValue.isWritten ? addressInitialValue.street : "street"}</span>
+                        className="">{"street"}</span>
                 </div>
               </div>
               <div className="user-skills-row">
