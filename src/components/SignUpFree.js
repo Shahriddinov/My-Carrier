@@ -7,23 +7,32 @@ import {
   displayCircle,
   signedWizardNextSteps,
 } from "../actions/careerAction";
-import { setAuthEmailValue, setAuthPasswordValue } from "../actions/authAction";
+import {
+  setAuthEmailValue,
+  setAuthPasswordValue,
+  setAuthConfirmPasswordValue,
+} from "../actions/authAction";
 import RoutesPath from "../routes/routes";
-import "../assets/styles/sign-up.scss"; 
+import "../assets/styles/sign-up.scss";
 
 const enhancer = connect(
   ({
     size: { size },
-    auth: { authEmailInitialValue, authPasswordInitialValue },
+    auth: {
+      authEmailInitialValue,
+      authPasswordInitialValue,
+      authConfirmPasswordInitialValue,
+    },
   }) => ({
     size,
     authEmailInitialValue,
     authPasswordInitialValue,
+    authConfirmPasswordInitialValue,
   }),
   null
 );
 
-const Login = (props) => {
+const SignUpFree = (props) => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -38,10 +47,12 @@ const Login = (props) => {
   const handlePasswordValue = (event) => {
     dispatch(setAuthPasswordValue(event.target.value));
   };
+  const handleConfirmPasswordValue = (event) => {
+    dispatch(setAuthConfirmPasswordValue(event.target.value));
+  };
 
   return (
-    <div className=" signup">
-      <div className="signup">
+    <div className="signup">
       <div
         className={
           props.size ? "sign-in sign-in-card-show" : "sign-in sign-in-card-hide"
@@ -49,9 +60,9 @@ const Login = (props) => {
       >
         <Card>
           <Card.Body>
-            <Card.Title>Sign In</Card.Title>
+            <Card.Title>Sign Up</Card.Title>
             <Card.Text>
-              Don’t have an account? <Link to={RoutesPath.signUpFree}> Sign Up Now</Link>
+              Don’t have an account? <Link to="/login"> Log In Now</Link>
             </Card.Text>
             <Form>
               <Form.Group className="form-shell">
@@ -72,15 +83,24 @@ const Login = (props) => {
                   value={props.authPasswordInitialValue}
                 />
               </Form.Group>
+              <Form.Group className="form-shell">
+                <Form.Control
+                  type="password"
+                  id="authPassword"
+                  placeholder="Confirm password"
+                  onChange={handleConfirmPasswordValue}
+                  value={props.authConfirmPasswordInitialValue}
+                />
+              </Form.Group>
             </Form>
-            <div className="bottom-fields between">
-              <Link to="#">Forgot password?</Link>
+            <div className="bottom-fields">
+              {/* <Link to="#">Forgot password?</Link> */}
               <Button
                 className="custom-btn"
                 onClick={() => {
-                  dispatch(addSize(props.size));
-                  dispatch(signedWizardNextSteps());
-                  navigate(RoutesPath.templates);
+                  // dispatch(addSize(props.size));
+                  // dispatch(signedWizardNextSteps());
+                  navigate(RoutesPath.veriFreelancer);
                 }}
               >
                 Continue
@@ -89,16 +109,16 @@ const Login = (props) => {
             <div className="bottom-title">Or continue with</div>
             <div className="bottom-icons">
               <div className="icon">
-                <img src="./images/facebook-3 logo.svg" alt="" />
+                <img src="/images/facebook-3 logo.svg" alt="" />
               </div>
               <div className="icon">
-                <img src="./images/github logo.svg" alt="" />
+                <img src="/images/github logo.svg" alt="" />
               </div>
               <div className="icon">
-                <img src="./images/Google logo.svg" alt="" />
+                <img src="/images/Google logo.svg" alt="" />
               </div>
               <div className="icon">
-                <img src="./images/Group 244.svg" alt="" />
+                <img src="/images/Group 244.svg" alt="" />
               </div>
             </div>
           </Card.Body>
@@ -116,48 +136,48 @@ const Login = (props) => {
             <div className="marquee--inner">
               <span>
                 <div className="orb">
-                  <img src="./images/first-resume.png" alt="" />
+                  <img src="/images/first-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/second-resume.png" alt="" />
+                  <img src="/images/second-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/third-resume.png" alt="" />
+                  <img src="/images/third-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/fourth-resume.png" alt="" />
+                  <img src="/images/fourth-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/fifth-resume.png" alt="" />
+                  <img src="/images/fifth-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/sixth-resume.png" alt="" />
+                  <img src="/images/sixth-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/first-resume.png" alt="" />
+                  <img src="/images/first-resume.png" alt="" />
                 </div>
               </span>
               <span>
                 <div className="orb">
-                  <img src="./images/sixth-resume.png" alt="" />
+                  <img src="/images/sixth-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/fifth-resume.png" alt="" />
+                  <img src="/images/fifth-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/fourth-resume.png" alt="" />
+                  <img src="/images/fourth-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/third-resume.png" alt="" />
+                  <img src="/images/third-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/first-resume.png" alt="" />
+                  <img src="/images/first-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/second-resume.png" alt="" />
+                  <img src="/images/second-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/first-resume.png" alt="" />
+                  <img src="/images/first-resume.png" alt="" />
                 </div>
               </span>
             </div>
@@ -169,57 +189,56 @@ const Login = (props) => {
             <div className="marquee--inner">
               <span>
                 <div className="orb">
-                  <img src="./images/first-resume.png" alt="" />
+                  <img src="/images/first-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/second-resume.png" alt="" />
+                  <img src="/images/second-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/third-resume.png" alt="" />
+                  <img src="/images/third-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/fourth-resume.png" alt="" />
+                  <img src="/images/fourth-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/fifth-resume.png" alt="" />
+                  <img src="/images/fifth-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/sixth-resume.png" alt="" />
+                  <img src="/images/sixth-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/first-resume.png" alt="" />
+                  <img src="/images/first-resume.png" alt="" />
                 </div>
               </span>
               <span>
                 <div className="orb">
-                  <img src="./images/sixth-resume.png" alt="" />
+                  <img src="/images/sixth-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/fifth-resume.png" alt="" />
+                  <img src="/images/fifth-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/fourth-resume.png" alt="" />
+                  <img src="/images/fourth-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/third-resume.png" alt="" />
+                  <img src="/images/third-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/first-resume.png" alt="" />
+                  <img src="/images/first-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/second-resume.png" alt="" />
+                  <img src="/images/second-resume.png" alt="" />
                 </div>
                 <div className="orb">
-                  <img src="./images/first-resume.png" alt="" />
+                  <img src="/images/first-resume.png" alt="" />
                 </div>
               </span>
             </div>
           </div>
         </div>
       </div>
-      </div>
     </div>
   );
 };
 
-export default enhancer(Login);
+export default enhancer(SignUpFree);

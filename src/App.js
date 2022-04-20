@@ -34,6 +34,12 @@ import BestMatchesTalants from "./components/talants/bestMatches";
 import NewTalants from "./components/talants/NewTalants";
 import Saved from "./components/talants/Saved";
 import SignUpPage from "./components/sign-up-page";
+import SignUp from './components/SignUpFree';
+import SignUpFree from './components/SignUpFree';
+import SignUpCompany from './components/SignUp-Company';
+import LoginCompany from './components/Login-Company';
+import VerificationCompany from './components/Verification-Company';
+import VerificationFreelancer from './components/Verification-Freelancer';
 
 const enhancer = connect(
     ({resumes: {doneResumes}}) =>
@@ -77,7 +83,15 @@ const App = props => {
                 <Route path={RoutesPath.bestMatches} element={<BestMatchesTalants/>}/>
                 <Route path={RoutesPath.NewTalants} element={<NewTalants/>}/>
                 <Route path={RoutesPath.Saved} element={<Saved/>}/>
-                <Route path={RoutesPath.signUpPage} element={<SignUpPage/>}/>
+                <Route path={`${RoutesPath.signUpPage}/:id`} element={<SignUpPage/>}/>
+                <Route path={RoutesPath.signUpFree} element={<SignUpFree/>}/>
+                <Route path={RoutesPath.signUpCompany} element={<SignUpCompany/>}/>
+                <Route path={RoutesPath.loginCompany} element={<LoginCompany/>}/>
+                <Route path={RoutesPath.veriCompany} element={<VerificationCompany/>}/>
+                <Route path={RoutesPath.veriFreelancer} element={<VerificationFreelancer/>}/>
+                
+
+
 
                 {/*<div className="done-resumes">*/}
                 {/*  <Resumes/>*/}

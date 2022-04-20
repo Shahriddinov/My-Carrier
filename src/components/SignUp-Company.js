@@ -7,23 +7,32 @@ import {
   displayCircle,
   signedWizardNextSteps,
 } from "../actions/careerAction";
-import { setAuthEmailValue, setAuthPasswordValue } from "../actions/authAction";
+import {
+  setAuthEmailValue,
+  setAuthPasswordValue,
+  setAuthConfirmPasswordValue,
+} from "../actions/authAction";
 import RoutesPath from "../routes/routes";
-import "../assets/styles/sign-up.scss"; 
+import "../assets/styles/sign-up.scss";
 
 const enhancer = connect(
   ({
     size: { size },
-    auth: { authEmailInitialValue, authPasswordInitialValue },
+    auth: {
+      authEmailInitialValue,
+      authPasswordInitialValue,
+      authConfirmPasswordInitialValue,
+    },
   }) => ({
     size,
     authEmailInitialValue,
     authPasswordInitialValue,
+    authConfirmPasswordInitialValue,
   }),
   null
 );
 
-const Login = (props) => {
+const SignUpCompany = (props) => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -38,10 +47,12 @@ const Login = (props) => {
   const handlePasswordValue = (event) => {
     dispatch(setAuthPasswordValue(event.target.value));
   };
+  const handleConfirmPasswordValue = (event) => {
+    dispatch(setAuthConfirmPasswordValue(event.target.value));
+  };
 
   return (
-    <div className=" signup">
-      <div className="signup">
+    <div className="signup">
       <div
         className={
           props.size ? "sign-in sign-in-card-show" : "sign-in sign-in-card-hide"
@@ -49,9 +60,10 @@ const Login = (props) => {
       >
         <Card>
           <Card.Body>
-            <Card.Title>Sign In</Card.Title>
+            <Card.Title>Sign Up</Card.Title>
             <Card.Text>
-              Don’t have an account? <Link to={RoutesPath.signUpFree}> Sign Up Now</Link>
+              Don’t have an account?
+              <Link to={RoutesPath.loginCompany}> Log In Now</Link>
             </Card.Text>
             <Form>
               <Form.Group className="form-shell">
@@ -72,15 +84,24 @@ const Login = (props) => {
                   value={props.authPasswordInitialValue}
                 />
               </Form.Group>
+              <Form.Group className="form-shell">
+                <Form.Control
+                  type="password"
+                  id="authPassword"
+                  placeholder="Confirm password"
+                  onChange={handleConfirmPasswordValue}
+                  value={props.authConfirmPasswordInitialValue}
+                />
+              </Form.Group>
             </Form>
-            <div className="bottom-fields between">
-              <Link to="#">Forgot password?</Link>
+            <div className="bottom-fields">
+              {/* <Link to="#">Forgot password?</Link> */}
               <Button
                 className="custom-btn"
                 onClick={() => {
-                  dispatch(addSize(props.size));
-                  dispatch(signedWizardNextSteps());
-                  navigate(RoutesPath.templates);
+                  // dispatch(addSize(props.size));
+                  // dispatch(signedWizardNextSteps());
+                  navigate(RoutesPath.veriCompany);
                 }}
               >
                 Continue
@@ -104,11 +125,27 @@ const Login = (props) => {
           </Card.Body>
         </Card>
       </div>
+      <div className="col-11 d-flex justify-content-end unshow-tab">
+        <img
+          className=""
+          style={{ zIndex: "10", marginTop: "5%" }}
+          // width="80%"
+          src="/images/signup-company.svg"
+          alt="Error"
+        />
+      </div>
+      <div className="pattern1 unshow-tab">
+        <img src="./images/white-ell1.svg" alt="pattern" />
+        <img src="./images/white-ell2.svg" alt="pattern" />
+        <img src="./images/white-ell3.svg" alt="pattern" />
+        <img src="./images/white-ell4.svg" alt="pattern" />
+        <img src="./images/white-ell5.svg" alt="pattern" />
+      </div>
       <div
         className={
           props.size
-            ? "anime-carousel-wrapper carousels-show"
-            : "anime-carousel-wrapper carousels-hide"
+            ? "anime-carousel-wrapper show-tab carousels-show"
+            : "anime-carousel-wrapper show-tab carousels-hide"
         }
       >
         <div className="anime-carousel">
@@ -217,9 +254,8 @@ const Login = (props) => {
           </div>
         </div>
       </div>
-      </div>
     </div>
   );
 };
 
-export default enhancer(Login);
+export default enhancer(SignUpCompany);
