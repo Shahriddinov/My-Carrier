@@ -1,6 +1,7 @@
 const RoutesPath = {
   home: "/",
   login: "/login",
+  loginCompany: "/loginComp",
   templates: "/info",
   aboutUs: "/aboutUs",
   postJop: "/postJop",
@@ -11,18 +12,21 @@ const RoutesPath = {
   jop: "/jobs",
   newJops: "/new-jops",
   savedJops: "/saved-jops",
-  addCompany:"/addCompany",
+  addCompany: "/addCompany",
   profileCompany: "/profileCompany",
   myCv: "/myCv",
   editPassword: "/editPassword",
-  chatForFreelancer:"/chatForFreelancer",
-  chatForCompany:"/chatForCompany",
-  talants:"/talants",
-  bestMatches:"/bestMatches",
-  NewTalants:"/NewTalants",
-  Saved:"/Saved",
-  signUpPage:"/signUpPage"
-
+  chatForFreelancer: "/chatForFreelancer",
+  chatForCompany: "/chatForCompany",
+  talants: "/talants",
+  bestMatches: "/bestMatches",
+  NewTalants: "/NewTalants",
+  Saved: "/Saved",
+  signUpPage: "/signUpPage",
+  signUpFree: "/signUpFree",
+  signUpCompany: "/signUpCompany",
+  veriCompany: '/veriCompany',
+  veriFreelancer: '/veriFreelancer',
 };
 
-export default RoutesPath
+export default RoutesPath;

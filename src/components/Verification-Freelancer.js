@@ -9,7 +9,7 @@ import {
 } from "../actions/careerAction";
 import { setAuthEmailValue, setAuthPasswordValue } from "../actions/authAction";
 import RoutesPath from "../routes/routes";
-import "../assets/styles/sign-up.scss"; 
+import "../assets/styles/sign-up.scss";
 
 const enhancer = connect(
   ({
@@ -23,7 +23,7 @@ const enhancer = connect(
   null
 );
 
-const Login = (props) => {
+const VerificationFreelancer = (props) => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -40,8 +40,7 @@ const Login = (props) => {
   };
 
   return (
-    <div className=" signup">
-      <div className="signup">
+    <div className="signup">
       <div
         className={
           props.size ? "sign-in sign-in-card-show" : "sign-in sign-in-card-hide"
@@ -49,57 +48,22 @@ const Login = (props) => {
       >
         <Card>
           <Card.Body>
-            <Card.Title>Sign In</Card.Title>
-            <Card.Text>
-              Don’t have an account? <Link to={RoutesPath.signUpFree}> Sign Up Now</Link>
-            </Card.Text>
-            <Form>
-              <Form.Group className="form-shell">
-                <Form.Control
-                  type="email"
-                  id="authEmail"
-                  placeholder="Email"
-                  onChange={handleEmailValue}
-                  value={props.authEmailInitialValue}
-                />
-              </Form.Group>
-              <Form.Group className="form-shell">
-                <Form.Control
-                  type="password"
-                  id="authPassword"
-                  placeholder="Password"
-                  onChange={handlePasswordValue}
-                  value={props.authPasswordInitialValue}
-                />
-              </Form.Group>
-            </Form>
-            <div className="bottom-fields between">
-              <Link to="#">Forgot password?</Link>
-              <Button
-                className="custom-btn"
-                onClick={() => {
-                  dispatch(addSize(props.size));
-                  dispatch(signedWizardNextSteps());
-                  navigate(RoutesPath.templates);
-                }}
-              >
-                Continue
-              </Button>
+            <Card.Title className="center">Check your email</Card.Title>
+            <div className="d-flex justify-content-center">
+              <img
+                className="veriImg"
+                src="./images/verification.svg"
+                alt="pattern"
+              />
             </div>
-            <div className="bottom-title">Or continue with</div>
-            <div className="bottom-icons">
-              <div className="icon">
-                <img src="./images/facebook-3 logo.svg" alt="" />
+            <div className="bottom-fields">
+              <div className="bottom-title">
+                Check your qwerty123@gmail.com inbox for instructions from us on
+                how to verify your account.
               </div>
-              <div className="icon">
-                <img src="./images/github logo.svg" alt="" />
-              </div>
-              <div className="icon">
-                <img src="./images/Google logo.svg" alt="" />
-              </div>
-              <div className="icon">
-                <img src="./images/Group 244.svg" alt="" />
-              </div>
+            </div>
+            <div className="go-login">
+              <Link to={RoutesPath.login}>Go to login screen</Link>
             </div>
           </Card.Body>
         </Card>
@@ -217,9 +181,8 @@ const Login = (props) => {
           </div>
         </div>
       </div>
-      </div>
     </div>
   );
 };
 
-export default enhancer(Login);
+export default enhancer(VerificationFreelancer);

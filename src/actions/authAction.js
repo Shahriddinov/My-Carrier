@@ -1,6 +1,7 @@
 import {
   SET_AUTH_EMAIL,
   SET_AUTH_PASSWORD,
+  SET_AUTH_CONFIRM_PASSWORD,
   SAVE_NEW_WORK_EXPERIENCE,
   REMOVE_SAVED_WORK_EXPERIENCE,
   WORK_EXPERIENCE_EDIT_MODAL_VISIBLE,
@@ -18,6 +19,11 @@ export function setAuthEmailValue(data) {
 export function setAuthPasswordValue(data) {
   return (dispatch) => {
     dispatch({type: SET_AUTH_PASSWORD, data})
+  }
+}
+export function setAuthConfirmPasswordValue(data) {
+  return (dispatch) => {
+    dispatch({type: SET_AUTH_CONFIRM_PASSWORD, data})
   }
 }
 
