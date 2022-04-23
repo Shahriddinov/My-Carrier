@@ -12,6 +12,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./components/postJop/post.scss";
 import "./components/talants/talants.scss";
+import "./components/talants/404.scss";
 import './assets/styles/profile-cv.scss';
 import './assets/styles/edit-password.scss';
 import './assets/styles/for-chat.scss';

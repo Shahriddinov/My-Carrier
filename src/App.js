@@ -9,7 +9,7 @@ import Personalization from "./components/Personalization";
 import PersonalInformation from "./components/PersonalInformation";
 import FormCarousel from "./components/FormCarousel";
 import Home from "./components/Home";
-import {Routes, Route, useNavigate, useLocation} from "react-router-dom";
+import {Routes, Route, Navigate, useNavigate, useLocation} from "react-router-dom";
 import RoutesPath from "./routes/routes";
 import MainLogin from "./components/MainLogin";
 import AboutUs from "./components/AboutUs";
@@ -68,7 +68,7 @@ const App = props => {
                 <Route path={RoutesPath.myResume} element={<MyResume/>}/>
                 <Route path={RoutesPath.addCompany} element={<AddCompany/>}/>
                 <Route path={RoutesPath.profileCompany} element={<ProfileCompany/>}/>
-                <Route element={<NotFound/>}/>
+                <Route path={RoutesPath.notFound} element={<NotFound/>}/>
                 <Route path={RoutesPath.myCv} element={<MyCv/>}/>
                 <Route path={RoutesPath.editPassword} element={<EditPassword/>}/>
                 <Route path={RoutesPath.chatForFreelancer} element={<ChatForFreelancer/>}/>
@@ -78,6 +78,7 @@ const App = props => {
                 <Route path={RoutesPath.NewTalants} element={<NewTalants/>}/>
                 <Route path={RoutesPath.Saved} element={<Saved/>}/>
                 <Route path={RoutesPath.signUpPage} element={<SignUpPage/>}/>
+                <Route path="*" element={<Navigate to={RoutesPath.notFound} replace />}/>
 
                 {/*<div className="done-resumes">*/}
                 {/*  <Resumes/>*/}
